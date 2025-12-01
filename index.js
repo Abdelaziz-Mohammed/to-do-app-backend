@@ -16,7 +16,8 @@ app.use("/api/todos", todosRouter);
 
 mongoose
   .connect(
-    "mongodb+srv://abdelazizmo2022_db_user:v9yaYu6yUrjnu178@cluster0.s8gupjm.mongodb.net/nti-tasks-database?retryWrites=true&w=majority&appName=Cluster0"
+    process.env.MONGODB_URI ||
+      "mongodb+srv://abdelazizmo2022_db_user:v9yaYu6yUrjnu178@cluster0.s8gupjm.mongodb.net/nti-tasks-database?retryWrites=true&w=majority&appName=Cluster0"
   )
   .then(() => {
     console.log("Connected to MongoDB");
