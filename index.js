@@ -15,10 +15,7 @@ app.use(express.json());
 app.use("/api/todos", todosRouter);
 
 mongoose
-  .connect(
-    process.env.MONGODB_URI ||
-      "mongodb+srv://abdelazizmo2022_db_user:v9yaYu6yUrjnu178@cluster0.s8gupjm.mongodb.net/nti-tasks-database?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
